@@ -1,11 +1,23 @@
-<form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
-
-  <div *ngFor="let CountryData of CountryData; let i=index">
-    <label>
-      <input type="checkbox" [value]="CountryData.value" (change)="onCheckboxChange($event)" />
-      {{CountryData.name}}
-    </label>
+<form [formGroup]="patientForm" (ngSubmit)="manage()">
+  <!-- Checkboxes in a List -->
+  <div>
+    <div
+      *ngFor="
+        let immunization of patientForm.controls.immunizationDetails[
+          'controls'
+        ];
+        let i = index
+      "
+    >
+      <label>{{ immunization.value.name }}</label>
+      <input
+        type="checkbox"
+        color="primary"
+        formArrayName="immunizationDetails"
+        (change)="registerChanges($event)"
+      />
+    </div>
   </div>
 
-  <input type="submit" value="Submit">
+  <button type="submit">Submit</button>
 </form>

@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-checkboxes-example"
+    }
+  },
+  "defaultProject": "angular-checkboxes-example",
+  "cli": {
+    "analytics": false
+  }
 }
